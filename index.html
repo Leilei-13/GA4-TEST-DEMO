@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yilin's GA4 Ads Demo Site</title>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PTGGC689');</script>
+  <!-- End Google Tag Manager -->
+  
+
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 60px 20px; background: #f9f9f9; }
+    h1 { color: #333; }
+    .cta-section { margin: 40px 0; }
+    button { padding: 16px 32px; font-size: 20px; margin: 15px; cursor: pointer; border: none; border-radius: 6px; color: white; }
+    .primary { background: #1a73e8; }
+    .success { background: #34a853; }
+    .warning { background: #fbbc05; }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTGGC689"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <h1>Welcome to My Ads Testing Demo Site</h1>
+  <p>Simulating user actions for Google Ads conversion tracking practice (Hong Kong 2026)</p>
+
+  <div class="cta-section">
+    <h2>Lead Generation CTAs</h2>
+    <button class="primary" onclick="sendCtaEvent('sign_up', 'hero', 'Sign Up Free')">Sign Up Free</button>
+    <button class="success" onclick="sendCtaEvent('book_demo', 'pricing', 'Book a Demo')">Book a Demo</button>
+  </div>
+
+  <div class="cta-section">
+    <h2>E-commerce / Purchase Simulation</h2>
+    <button class="warning" onclick="sendCtaEvent('add_to_cart', 'product', 'Add to Cart')">Add to Cart</button>
+    <button class="primary" onclick="sendCtaEvent('purchase', 'checkout', 'Buy Now - $49')">Buy Now</button>
+  </div>
+
+  <!-- Fake outbound link for testing enhanced measurement outbound clicks -->
+  <p><a href="https://example.com/thank-you" target="_blank" onclick="gtag('event', 'cta_click', {event_category: 'outbound', event_label: 'thank_you_external'});">Fake External Thank You Link (tests outbound)</a></p>
+
+  <script>
+    function sendCtaEvent(action, location, label) {
+      gtag('event', 'cta_click', {
+        'event_category': 'engagement',
+        'event_action': action,          // e.g. 'sign_up', 'book_demo'
+        'event_label': label,            // button text
+        'cta_location': location,        // page section
+        'value': 1                       // optional: assign a value for importance
+      });
+      alert('CTA tracked: ' + label + ' → Check GA4 Realtime!');
+    }
+  </script>
+
+</body>
+</html>
